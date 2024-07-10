@@ -1,4 +1,4 @@
-#!/usr/env bash
+#!/usr/bin/bash
 
 echo "Setting up Virtual env..."
 python3 -m venv venv
