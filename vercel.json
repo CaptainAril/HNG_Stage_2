@@ -8,13 +8,21 @@
       },
       {
         "src": "build.sh",
-        "use": "@vercel/static-build"
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles"
+        }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
         "dest": "hngUser/wsgi.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
       }
+      
     ]
   }

@@ -26,10 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4ntfuhe%h(=ej1(w6uke=c4b#)((&^4vl#ksuz3$37t+(kc$r%'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+DEBUG = os.environ.get("DEBUG") != "False"
+
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', '.now.sh']
 
@@ -37,6 +43,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', '.now.sh']
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,11 +167,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
