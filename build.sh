@@ -7,4 +7,4 @@ python3.12 hngUser/manage.py makemigrations --noinput
 python3.12 hngUser/manage.py migrate --noinput
 
 echo "Collect Static..."
-python3.12 manage.py collectstatic --noinput --clear
+python3.12 hngUser/manage.py collectstatic --noinput --clear
