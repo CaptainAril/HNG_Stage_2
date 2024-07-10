@@ -71,8 +71,8 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'hngUser.wsgi.application'
-WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'hngUser.wsgi.app'
+# WSGI_APPLICATION = 'api.wsgi.app'
 
 
 # Database
