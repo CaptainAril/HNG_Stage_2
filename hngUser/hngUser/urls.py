@@ -20,11 +20,15 @@ from django.urls import include, path
 from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
 
+from .views import index
+
 # handler404 = custom_404
 # handler405 = custom_405
 
 
 urlpatterns = [
+    path('', index),
+    
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 
