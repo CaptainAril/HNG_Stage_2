@@ -38,3 +38,7 @@ urlpatterns = [
     # path('404/', custom_404, name='custom_404'),
     # path('405/', custom_405, name='custom_405'),
 ]
+
+
+# urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
