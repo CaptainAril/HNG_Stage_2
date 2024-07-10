@@ -26,11 +26,11 @@ class CustomUserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     userId = models.UUIDField(primary_key=True, unique=True, default=uuid4, editable=False)
-    email = models.CharField(unique=True, null=False, max_length=100)
-    firstName = models.CharField(null=False, max_length=50)
-    lastName = models.CharField(null=False, max_length=50)
-    password = models.CharField(null=False, max_length=50)
-    phone = models.CharField(blank=True, max_length=18)
+    email = models.CharField(unique=True, null=False, max_length=240)
+    firstName = models.CharField(null=False, max_length=150)
+    lastName = models.CharField(null=False, max_length=150)
+    password = models.CharField(null=False, max_length=150)
+    phone = models.CharField(blank=True, max_length=20)
     
     objects = CustomUserManager()
 
